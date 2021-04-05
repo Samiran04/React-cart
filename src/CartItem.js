@@ -5,36 +5,39 @@ class CartItem extends React.Component{
     constructor(){
         super();
 
-        this.state = {
+        this.state = { 
             price: 999,
-            title: 'Puma 113',
+            title: 'Mobile',
             qty: 1,
             img: ''
         }
     }
 
     increaseQuantity = () => {
+
         this.setState((prevState) => {
             return {
                 qty: prevState.qty + 1
             }
+        }, () => {
+            console.log(this.state.qty);
         })
-        console.log(this.state.qty);
     }
 
     decreaseQuantity = () => {
 
         const {qty} = this.state;
 
-        if(qty == 0)
+        if(qty === 0)
         {
             return;
         }
 
         this.setState({
             qty: this.state.qty - 1
+        }, () => {
+            console.log(this.state.qty);
         });
-        console.log(this.state.qty);
     }
     render() {
 
@@ -46,8 +49,8 @@ class CartItem extends React.Component{
                 <img className="cart-image" src=""></img>
             </div>
             <div className="right-block">
-                <div>{price}</div>
                 <div>{title}</div>
+                <div>{price}</div>
                 <div>{qty}</div>
             </div>
             <div className="cart-item-actions">

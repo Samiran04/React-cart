@@ -30,3 +30,9 @@ body {
   height: 100px;
   width: 100px;
 }
+
+
+.cart {
+  display: flex;
+  flex-direction: column;
+}
