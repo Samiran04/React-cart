@@ -12,33 +12,6 @@ class CartItem extends React.Component{
             img: ''
         }
     }
-
-    increaseQuantity = () => {
-
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty + 1
-            }
-        }, () => {
-            console.log(this.state.qty);
-        })
-    }
-
-    decreaseQuantity = () => {
-
-        const {qty} = this.state;
-
-        if(qty === 0)
-        {
-            return;
-        }
-
-        this.setState({
-            qty: this.state.qty - 1
-        }, () => {
-            console.log(this.state.qty);
-        });
-    }
     render() {
 
         const {price, title, qty} = this.props.product;
@@ -58,14 +31,15 @@ class CartItem extends React.Component{
                     <img className="action-icons" 
                     src="https://www.flaticon.com/premium-icon/icons/svg/3303/3303893.svg" 
                     alt="plus"
-                    onClick = {this.increaseQuantity}></img>
+                    onClick = {() => this.props.onIncreaseQuantity(this.props.product)}></img>
                     <img className="action-icons" 
                     src="https://www.flaticon.com/premium-icon/icons/svg/2985/2985073.svg" 
                     alt="minus"
-                    onClick = {this.decreaseQuantity}></img>
+                    onClick = {() => this.props.onDecreasingQuantity(this.props.product)}></img>
                     <img className="action-icons" 
                     src="https://www.flaticon.com/svg/vstatic/svg/3096/3096673.svg?token=exp=1617407128~hmac=e0aad1d8552ee358d810248f4c5f0188" 
-                    alt="delete"></img>
+                    alt="delete"
+                    onClick = {() => this.props.onDeletingProduct(this.props.product.id)}></img>
                 </div>
             </div>
         </div>
