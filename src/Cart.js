@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+import Navbar from './Navbar';
 
 class Cart extends React.Component {
 
@@ -82,8 +83,10 @@ class Cart extends React.Component {
         const {products} = this.state;
         return (
             <div className="cart">
+                <Navbar />
                 {products.map((product) => {
-                    return (<CartItem 
+                    return (
+                    <CartItem 
                         product = {product} 
                         key = {product.id} 
                         onIncreaseQuantity = {this.handleIncreaseQuantity}
