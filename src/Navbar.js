@@ -1,17 +1,15 @@
 import React from 'react';
 
-class Navbar extends React.Component {
-    render() {
-        return (
-            <div style = {styles.nav}>
-                <div style = {styles.cartIconContainer}>
-                    <img style = {styles.cartIcon} src="https://www.flaticon.com/svg/vstatic/svg/3144/3144456.svg?token=exp=1617825461~hmac=7dc417a954845feab6e0911b186b7e19"
-                    alt="Cart Image" ></img>
-                    <span style = {styles.cartCount}>3</span>
-                </div>
-            </div>
-        )
-    }
+const Navbar = (props) => {
+      return (
+          <div style = {styles.nav}>
+              <div style = {styles.cartIconContainer}>
+                  <img style = {styles.cartIcon} src="https://www.flaticon.com/svg/vstatic/svg/3144/3144456.svg?token=exp=1617825461~hmac=7dc417a954845feab6e0911b186b7e19"
+                  alt="Cart Image" ></img>
+                  <span style = {styles.cartCount}>{props.count}</span>
+              </div>
+          </div>
+      )
 }
 
 const styles = {
@@ -37,6 +35,6 @@ const styles = {
       right: 0,
       top: -9
     }
-  };
+};
 
 export default Navbar;
